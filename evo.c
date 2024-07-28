@@ -15,29 +15,28 @@
 #define MAX_NB_GENES 5
 
 // Neurons
-#define BorderDistanceUp 0x01
-#define BorderDistanceDown 0x02
-#define BorderDistanceLeft 0x03
-#define BorderDistanceRight 0x04
-#define DistanceNeighbor 0x05
+#define BORDERDISTANCE_UP 0x01
+#define BORDERDISTANCE_DOWN 0x02
+#define BORDERDISTANCE_LEFT 0x03
+#define BORDERDISTANCE_RIGHT 0x04
+#define DISTANCE_NEIGHBOR 0x05
 
-#define MoveUp 0x06
-#define MoveDown 0x07
-#define MoveLeft 0x08
-#define MoveRight 0x09
-#define MoveRandom 0x0A
-#define Halt 0x0B
+#define MOVE_UP 0x06
+#define MOVE_DOWN 0x07
+#define MOVE_LEFT 0x08
+#define MOVE_RIGHT 0x09
+#define MOVE_RANDOM 0x0A
+#define HALT 0x0B
 
-#define DoubleWeight 0x0C
-#define HalfWeight 0x0D
-#define Threshold 0x0E
+#define DOUBLEWEIGHT 0x0C
+#define HALFWEIGHT 0x0D
+#define THRESHOLD 0x0E
 
 // Directions
-// mapped like numpad
-#define Direction_Up 8
-#define Direction_Down 2
-#define Direction_Left 4
-#define Direction_Right 6
+#define DIRECTION_UP 8
+#define DIRECTION_DOWN 2
+#define DIRECTION_LEFT 4
+#define DIRECTION_RIGHT 6
 
 struct Neuron {
   uint32_t id;
@@ -88,19 +87,19 @@ int move_Bob_To(struct Bob *bob, struct GameState *gamestate, int x, int y) {
 
 void move_Bob(struct Bob *bob, struct GameState *gamestate, int direction) {
   switch (direction) {
-  case Direction_Up:
+  case DIRECTION_UP:
     move_Bob_To(bob, gamestate, bob->x, bob->y + 1);
     break;
 
-  case Direction_Down:
+  case DIRECTION_DOWN:
     move_Bob_To(bob, gamestate, bob->x, bob->y - 1);
     break;
 
-  case Direction_Left:
+  case DIRECTION_LEFT:
     move_Bob_To(bob, gamestate, bob->x - 1, bob->y);
     break;
 
-  case Direction_Right:
+  case DIRECTION_RIGHT:
     move_Bob_To(bob, gamestate, bob->x + 1, bob->y);
     break;
   }
